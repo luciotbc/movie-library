@@ -1,20 +1,22 @@
+# app/graphql/mutations/add_item_mutation.rb
+
 module Mutations
   class AddItemMutation < Mutations::BaseMutation
-    argument :attributes, Types::ItemAttributes, required: true
+    argument :attributes, Types::ItemAttributes, required: true # new argument
 
     field :item, Types::ItemType, null: true
-    field :errors, [String], null: false
+    field :errors, Types::ValidationErrorsType, null: true # <= change here
 
+    # signature change
     def resolve(attributes:)
       check_authentication!
 
-      item = Item.new(attributes.merge(user: context[:current_user]))
+      item = Item.new(attributes.to_h.merge(user: context[:current_user])) # change here
 
       if item.save
-        MartianLibrarySchema.subscriptions.trigger("itemAdded", {}, item)
         { item: item }
       else
-        { errors: item.errors.full_messages }
+        { errors: item.errors }
       end
     end
   end

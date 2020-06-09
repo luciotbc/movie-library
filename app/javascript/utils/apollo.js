@@ -8,7 +8,7 @@ import { onError } from 'apollo-link-error';
 import { ApolloLink, Observable } from 'apollo-link';
 
 import ActionCable from 'actioncable';
-import ActionCableLink from 'graphql-ruby-client/subscriptions/ActionCableLink';
+import {ActionCableLink} from 'graphql-ruby-client';
 
 export const createCache = () => {
   const cache = new InMemoryCache();

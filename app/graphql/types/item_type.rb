@@ -4,10 +4,6 @@ module Types
     field :title, String, null: false
     field :description, String, null: true
     field :image_url, String, null: true
-    field :user, UserType, null: true
-
-    def user
-      RecordLoader.for(User).load(object.user_id)
-    end
+    field :user, Types::UserType, null: false
   end
-end 
+end
