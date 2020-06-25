@@ -1,24 +1,16 @@
-# README
+# A movie library
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple project to practice Ruby on Rails + GraphQL + React
 
-Things you may want to cover:
+This is a small project created based in a awesome tutorial [part 1](https://evilmartians.com/chronicles/graphql-on-rails-1-from-zero-to-the-first-query) [part 2](https://evilmartians.com/chronicles/graphql-on-rails-2-updating-the-data) [part 3](https://evilmartians.com/chronicles/graphql-on-rails-3-on-the-way-to-perfection) created by [@evilmartians](https://github.com/evilmartians/)
 
-* Ruby version
+## How to run on local machine
 
-* System dependencies
+You need [nodejs](https://nodejs.org/en/download/) and [yarn](https://yarnpkg.com/lang/en/docs/install) installed.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+yarn
+bundle
+./bin/setup
+rails s
+```
